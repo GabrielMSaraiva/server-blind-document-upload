@@ -1,0 +1,25 @@
+{
+  "name": "server-blind-document-upload",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "concurrently -n api,web -c cyan,magenta \"npm:dev:api\" \"npm:dev:web\"",
+    "dev:api": "npm run dev --workspace @zk/api",
+    "dev:web": "npm run dev --workspace @zk/web",
+    "build": "npm run build --workspace @zk/shared && npm run build --workspace @zk/api && npm run build --workspace @zk/web",
+    "check": "npm run check --workspace @zk/shared && npm run check --workspace @zk/api && npm run check --workspace @zk/web",
+    "test": "npm run build --workspace @zk/shared && npm run test --workspace @zk/shared && npm run test --workspace @zk/api && npm run test --workspace @zk/web",
+    "ci": "npm run check && npm test && npm run build"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.5"
+  }
+}

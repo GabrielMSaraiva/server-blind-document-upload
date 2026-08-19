@@ -1,0 +1,15 @@
+node_modules/
+dist/
+coverage/
+.env
+.env.local
+*.log
+*.tsbuildinfo
+
+# Local-only design notes and abandoned database scaffold.
+/plan.md
+/apps/api/prisma/
+
+apps/api/prisma/dev.db
+apps/api/prisma/dev.db-journal
+apps/api/.local-storage/
